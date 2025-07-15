@@ -8,7 +8,6 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Buku::index');
 $routes->get('/create', 'Buku::create');
 $routes->post('/store', 'Buku::store');
-$routes->get('/edit/(:num)', 'Buku::edit/$1');
-$routes->post('/update/(:num)', 'Buku::update/$1');
-$routes->get('/delete/(:num)', 'Buku::delete/$1');
-
+$routes->get('/edit/(:segment)', 'Buku::edit/$1');
+$routes->post('/update/(:segment)', 'Buku::update/$1');
+$routes->get('/delete/(:segment)', 'Buku::delete/$1');

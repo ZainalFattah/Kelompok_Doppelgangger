@@ -1,7 +1,5 @@
-/* Import Google Font - Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* --- Root Variables for Easy Theme Customization --- */
 :root {
     --primary-bg: #1a1a2e;
     --secondary-bg: #16213e;
@@ -18,7 +16,6 @@
     --glow-color: rgba(233, 69, 96, 0.4);
 }
 
-/* --- General Body & Background Styling --- */
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
@@ -32,7 +29,6 @@ body {
     min-height: 100vh;
 }
 
-/* --- Main Container Styling --- */
 .container {
     width: 100%;
     max-width: 900px;
@@ -49,13 +45,13 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-/* --- Typography --- */
 h1 {
     text-align: center;
     font-size: 2.5rem;
@@ -66,29 +62,28 @@ h1 {
     text-shadow: 0 2px 5px var(--shadow-color);
 }
 
-/* --- Form Styling (REVISED) --- */
+
 form {
-    display: block; /* Menggunakan block untuk layout yang lebih robust */
+    display: block;
 }
 
 label {
-    display: block; /* Membuat label menjadi block-level agar punya baris sendiri */
+    display: block;
     font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-secondary);
-    margin-bottom: 0.5rem; /* Jarak antara label dan input */
+    margin-bottom: 0.5rem;
 }
 
-/* Memberi jarak atas untuk setiap field kecuali yang pertama */
 label:not(:first-of-type) {
     margin-top: 1.25rem;
 }
 
 input[type="text"],
 input[type="number"] {
-    display: block; /* Membuat input menjadi block-level */
-    width: 100%; /* Membuat input memenuhi lebar container */
-    box-sizing: border-box; /* Agar padding tidak menambah total lebar */
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     background-color: var(--primary-bg);
     border: 1px solid var(--border-color);
     color: var(--text-primary);
@@ -105,8 +100,10 @@ input[type="number"]:focus {
     box-shadow: 0 0 15px var(--glow-color);
 }
 
-/* --- Button Styling --- */
-.btn, .btn-back, .btn-edit, .btn-delete {
+.btn,
+.btn-back,
+.btn-edit,
+.btn-delete {
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
@@ -119,7 +116,6 @@ input[type="number"]:focus {
     display: inline-block;
 }
 
-/* Main action button (Simpan/Update) */
 .btn {
     background: linear-gradient(45deg, var(--secondary-accent), #c4304a);
     color: white;
@@ -131,7 +127,6 @@ input[type="number"]:focus {
     box-shadow: 0 6px 20px var(--glow-color);
 }
 
-/* Back button */
 .btn-back {
     background-color: transparent;
     color: var(--text-secondary);
@@ -144,27 +139,22 @@ input[type="number"]:focus {
     border-color: var(--primary-accent);
 }
 
-/* --- Form Actions Layout (REVISED) --- */
-/* Menargetkan tombol di akhir form */
-form > .btn,
-form > .btn-back {
-    margin-top: 2rem; /* Memberi jarak antara input terakhir dan tombol */
+form>.btn,
+form>.btn-back {
+    margin-top: 2rem;
 }
 
-/* Memberi jarak antara dua tombol */
-form > .btn + .btn-back {
+form>.btn+.btn-back {
     margin-left: 1rem;
 }
 
-
-/* --- Table Styling --- */
 table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 2rem;
     box-shadow: 0 5px 20px var(--shadow-color);
     border-radius: 8px;
-    overflow: hidden; /* Important for border-radius on table */
+    overflow: hidden;
 }
 
 thead tr {
@@ -173,7 +163,8 @@ thead tr {
     text-align: left;
 }
 
-th, td {
+th,
+td {
     padding: 15px;
     vertical-align: middle;
 }
@@ -196,14 +187,14 @@ tbody tr:hover {
     background-color: var(--primary-accent);
 }
 
-/* Action buttons inside the table */
 td:last-child {
     display: flex;
     gap: 10px;
     align-items: center;
 }
 
-.btn-edit, .btn-delete {
+.btn-edit,
+.btn-delete {
     padding: 6px 12px;
     font-size: 0.85rem;
 }
@@ -212,6 +203,7 @@ td:last-child {
     background-color: var(--edit-color);
     color: white;
 }
+
 .btn-edit:hover {
     background-color: #2980b9;
     transform: scale(1.05);
@@ -221,19 +213,18 @@ td:last-child {
     background-color: var(--danger-color);
     color: white;
 }
+
 .btn-delete:hover {
     background-color: #c0392b;
     transform: scale(1.05);
 }
 
-/* Add book button (+) */
 a.btn {
     margin-bottom: 2rem;
     display: inline-block;
     width: fit-content;
 }
 
-/* --- Responsive Design --- */
 @media (max-width: 768px) {
     .container {
         padding: 1.5rem;
@@ -243,12 +234,15 @@ a.btn {
         font-size: 2rem;
     }
 
-    /* Force table to not be like tables anymore */
-    table, thead, tbody, th, td, tr {
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
         display: block;
     }
 
-    /* Hide table headers (but not display: none;, for accessibility) */
     thead tr {
         position: absolute;
         top: -9999px;
@@ -261,13 +255,12 @@ a.btn {
         border: 1px solid var(--border-color);
         box-shadow: 0 2px 5px var(--shadow-color);
     }
-    
+
     tbody tr:hover {
-       background-color: var(--card-bg); /* Disable row hover on mobile */
+        background-color: var(--card-bg);
     }
 
     td {
-        /* Behave like a "row" */
         border: none;
         border-bottom: 1px solid var(--border-color);
         position: relative;
@@ -276,7 +269,6 @@ a.btn {
     }
 
     td:before {
-        /* Now like a table header */
         position: absolute;
         top: 50%;
         left: 15px;
@@ -289,15 +281,35 @@ a.btn {
         color: var(--text-secondary);
     }
 
-    /* Label the data */
-    td:nth-of-type(2):before { content: "ISBN"; }
-    td:nth-of-type(3):before { content: "Judul"; }
-    td:nth-of-type(4):before { content: "Penulis"; }
-    td:nth-of-type(5):before { content: "Penerbit"; }
-    td:nth-of-type(6):before { content: "Tahun"; }
-    td:nth-of-type(7):before { content: "Aksi"; }
-    
+    td:nth-of-type(1):before {
+        content: "No";
+    }
+
+    td:nth-of-type(2):before {
+        content: "ISBN";
+    }
+
+    td:nth-of-type(3):before {
+        content: "Judul";
+    }
+
+    td:nth-of-type(4):before {
+        content: "Penulis";
+    }
+
+    td:nth-of-type(5):before {
+        content: "Penerbit";
+    }
+
+    td:nth-of-type(6):before {
+        content: "Tahun";
+    }
+
+    td:nth-of-type(7):before {
+        content: "Aksi";
+    }
+
     td:last-child {
-      justify-content: flex-end;
+        justify-content: flex-end;
     }
 }
