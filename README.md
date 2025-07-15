@@ -1,68 +1,50 @@
-# CodeIgniter 4 Application Starter
+# Proyek CRUD Buku dengan CodeIgniter 4
 
-## What is CodeIgniter?
+Proyek ini adalah aplikasi web sederhana untuk mengelola data buku (Create, Read, Update, Delete) yang dibangun dengan framework CodeIgniter 4.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Fitur
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+*   **Create:** Menambahkan data buku baru.
+*   **Read:** Menampilkan daftar buku yang ada di database.
+*   **Update:** Mengubah data buku yang sudah ada.
+*   **Delete:** Menghapus data buku.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Teknologi yang Digunakan
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+*   **Framework:** CodeIgniter 4
+*   **Bahasa Pemrograman:** PHP 8.1
+*   **Database:** (Tidak disebutkan secara spesifik, namun dapat dikonfigurasi di `app/Config/Database.php`)
+*   **Web Server:** (Tidak disebutkan secara spesifik, dapat dijalankan dengan `php spark serve`)
 
-## Installation & updates
+## Struktur Proyek
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+*   `app/Controllers/Buku.php`: Mengatur logika untuk menangani permintaan terkait data buku.
+*   `app/Models/BukuModel.php`: Berinteraksi dengan tabel `buku` di database.
+*   `app/Views/`: Berisi file-file untuk menampilkan halaman web (daftar buku, tambah buku, edit buku).
+*   `public/`: Direktori publik yang dapat diakses oleh pengguna.
+*   `composer.json`: Mendefinisikan dependensi proyek.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+## Cara Menjalankan Proyek
 
-## Setup
+1.  **Clone repository ini:**
+    ```bash
+    git clone https://github.com/username/nama-proyek.git
+    ```
+2.  **Install dependensi:**
+    ```bash
+    composer install
+    ```
+3.  **Konfigurasi database:**
+    *   Salin file `.env.example` menjadi `.env`.
+    *   Buka file `.env` dan sesuaikan konfigurasi database Anda.
+    *   Buat database baru dan import file SQL yang berisi struktur tabel `buku`.
+4.  **Jalankan web server:**
+    ```bash
+    php spark serve
+    ```
+5.  **Buka browser:**
+    Akses `http://localhost:8080` di browser Anda.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+## Kontribusi
 
-## Important Change with index.php
-
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 8.1 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Kontribusi dalam bentuk apapun sangat diterima. Silakan buat *pull request* atau *issue* jika Anda menemukan masalah atau memiliki ide untuk pengembangan lebih lanjut.
