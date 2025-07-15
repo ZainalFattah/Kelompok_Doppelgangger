@@ -28,7 +28,7 @@ Proyek ini adalah aplikasi web sederhana untuk mengelola data buku (Create, Read
 
 1.  **Clone repository ini:**
     ```bash
-    git clone [https://github.com/username/nama-proyek](https://github.com/ZainalFattah/Kelompok_Doppelgangger).git
+    git clone https://github.com/ZainalFattah/Kelompok_Doppelgangger.git
     ```
 2.  **Install dependensi:**
     ```bash
