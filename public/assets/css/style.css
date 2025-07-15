@@ -1,0 +1,303 @@
+/* Import Google Font - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- Root Variables for Easy Theme Customization --- */
+:root {
+    --primary-bg: #1a1a2e;
+    --secondary-bg: #16213e;
+    --card-bg: #1f2847;
+    --primary-accent: #0f3460;
+    --secondary-accent: #e94560;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0d0;
+    --border-color: #3a3a5e;
+    --success-color: #5cb85c;
+    --danger-color: #e94560;
+    --edit-color: #3498db;
+    --shadow-color: rgba(2, 2, 10, 0.5);
+    --glow-color: rgba(233, 69, 96, 0.4);
+}
+
+/* --- General Body & Background Styling --- */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 2rem 1rem;
+    background: linear-gradient(45deg, var(--primary-bg), var(--secondary-bg));
+    background-attachment: fixed;
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* --- Main Container Styling --- */
+.container {
+    width: 100%;
+    max-width: 900px;
+    background-color: var(--card-bg);
+    padding: 2rem 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Typography --- */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -1px;
+    text-shadow: 0 2px 5px var(--shadow-color);
+}
+
+/* --- Form Styling (REVISED) --- */
+form {
+    display: block; /* Menggunakan block untuk layout yang lebih robust */
+}
+
+label {
+    display: block; /* Membuat label menjadi block-level agar punya baris sendiri */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem; /* Jarak antara label dan input */
+}
+
+/* Memberi jarak atas untuk setiap field kecuali yang pertama */
+label:not(:first-of-type) {
+    margin-top: 1.25rem;
+}
+
+input[type="text"],
+input[type="number"] {
+    display: block; /* Membuat input menjadi block-level */
+    width: 100%; /* Membuat input memenuhi lebar container */
+    box-sizing: border-box; /* Agar padding tidak menambah total lebar */
+    background-color: var(--primary-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--secondary-accent);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* --- Button Styling --- */
+.btn, .btn-back, .btn-edit, .btn-delete {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Main action button (Simpan/Update) */
+.btn {
+    background: linear-gradient(45deg, var(--secondary-accent), #c4304a);
+    color: white;
+    box-shadow: 0 4px 15px var(--glow-color);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px var(--glow-color);
+}
+
+/* Back button */
+.btn-back {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.btn-back:hover {
+    background-color: var(--primary-accent);
+    color: white;
+    border-color: var(--primary-accent);
+}
+
+/* --- Form Actions Layout (REVISED) --- */
+/* Menargetkan tombol di akhir form */
+form > .btn,
+form > .btn-back {
+    margin-top: 2rem; /* Memberi jarak antara input terakhir dan tombol */
+}
+
+/* Memberi jarak antara dua tombol */
+form > .btn + .btn-back {
+    margin-left: 1rem;
+}
+
+
+/* --- Table Styling --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+    box-shadow: 0 5px 20px var(--shadow-color);
+    border-radius: 8px;
+    overflow: hidden; /* Important for border-radius on table */
+}
+
+thead tr {
+    background-color: var(--primary-accent);
+    color: var(--text-primary);
+    text-align: left;
+}
+
+th, td {
+    padding: 15px;
+    vertical-align: middle;
+}
+
+th {
+    font-weight: 600;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:last-of-type {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background-color: var(--primary-accent);
+}
+
+/* Action buttons inside the table */
+td:last-child {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.btn-edit, .btn-delete {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+.btn-edit {
+    background-color: var(--edit-color);
+    color: white;
+}
+.btn-edit:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.btn-delete {
+    background-color: var(--danger-color);
+    color: white;
+}
+.btn-delete:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Add book button (+) */
+a.btn {
+    margin-bottom: 2rem;
+    display: inline-block;
+    width: fit-content;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+        border-radius: 8px;
+        border: 1px solid var(--border-color);
+        box-shadow: 0 2px 5px var(--shadow-color);
+    }
+    
+    tbody tr:hover {
+       background-color: var(--card-bg); /* Disable row hover on mobile */
+    }
+
+    td {
+        /* Behave like a "row" */
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:before {
+        /* Now like a table header */
+        position: absolute;
+        top: 50%;
+        left: 15px;
+        transform: translateY(-50%);
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--text-secondary);
+    }
+
+    /* Label the data */
+    td:nth-of-type(2):before { content: "ISBN"; }
+    td:nth-of-type(3):before { content: "Judul"; }
+    td:nth-of-type(4):before { content: "Penulis"; }
+    td:nth-of-type(5):before { content: "Penerbit"; }
+    td:nth-of-type(6):before { content: "Tahun"; }
+    td:nth-of-type(7):before { content: "Aksi"; }
+    
+    td:last-child {
+      justify-content: flex-end;
+    }
+}
